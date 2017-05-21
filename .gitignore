@@ -1,0 +1,6 @@
+.DS_Store
+.env
+project_env/
+FetchDeploymentPackage*
+*.json
+*.html
