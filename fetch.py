@@ -66,9 +66,6 @@ def get_result_from_source(source_dict, API_key):
     return articles_formatted
 
 
-    return
-
-
 def handler(event, context):
 
     client = boto3.client('s3')
