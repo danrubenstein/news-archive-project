@@ -58,14 +58,27 @@ def clean_temporary_resources():
 		shutil.rmtree(dir)
 
 
+def load_resources(update=False):
+	
+	'''
+	Load resources, by downloading if necessary
+	'''
+
+	if update:
+		raw_directory = "tmp-resource-"+str(uuid.uuid4())
+		download_files(raw_directory, force_update=update)
+		articles_df = get_json_as_dataframe(raw_directory)
+
+	else:
+		resource_directories = [x for x in os.listdir() if "tmp-resource" in x]
+		if len(resource_directories) == 1:
+			articles_df = get_json_as_dataframe(resource_directories[0])
+		else:
+			print("I'm sorry, but there are no available resource directories.")
 
 
 if __name__ == "__main__":
-	
-	raw_directory = "tmp-resource-"+str(uuid.uuid4())
-	print(raw_directory)
-	download_files(raw_directory)
-	articles_df = get_json_as_dataframe(raw_directory)
 
+	load_resources(update=True)
 
 
