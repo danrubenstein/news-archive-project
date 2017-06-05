@@ -4,3 +4,5 @@ project_env/
 FetchDeploymentPackage*
 *.json
 *.html
+*__pycache__*
+.ipynb_checkpoints/
